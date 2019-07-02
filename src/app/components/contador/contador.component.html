@@ -1,0 +1,21 @@
+
+
+
+
+<p [ngStyle]="{'display': hideCounter ? 'none': 'block'}">{{counter}}</p>
+  <div *ngIf="counter>=5 ; else menor">Contador passou de 5</div>
+  <ng-template #menor>
+    <p>Mc Donalds</p>
+  </ng-template>
+  
+  <div [ngSwitch]="counter">
+
+    <p *ngSwitchCase="3">Igual a 3</p>
+    <p *ngSwitchCase="5">Igual a 5</p>
+    <p *ngSwitchCase="7">Igual a 7</p>
+    <p *ngSwitchDefault>Default</p>
+  </div>
+ 
+  <h1 [ngStyle]="{'display': hideCounter ? 'block': 'none'}" >BOOOOOOM</h1>
+
+
