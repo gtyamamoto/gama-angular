@@ -1,0 +1,14 @@
+<p>lista-todos works!</p>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Titulo</th>
+        <th>Descricao</th>
+        <th>Finalizado</th>
+        <th>Data</th>
+    </tr>
+    <tr  *ngFor="let item of todos"   >
+            <app-todo-item [data]="item"></app-todo-item>
+
+    </tr>
+</table>

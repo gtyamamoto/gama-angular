@@ -1,25 +1,31 @@
 
 import { Component, OnInit } from '@angular/core';
-
+import { TodoService } from './todo.service';
+import {asyncScheduler} from 'rxjs'
+import { map,throttleTime,debounceTime} from 'rxjs/operators'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Xurupita';
-  items : Array<string|number> = [2,3,4,5,'jabuticaba'];
+  contador = 0;
+  constructor(public todoService : TodoService){
+
+  }
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    setTimeout(() => {
-      this.title ='auuuuuuuuuuu'
-    }, 2000);
-  
-    
+
+
+    this.todoService.contador
+    .pipe(
+      map(x=>x*2),
+      debounceTime(500,asyncScheduler)
+    )
+    .subscribe(value=>{
+      this.contador = value;
+    })
+
+
   }
-  novoItem(): void{
-    const text = prompt('digite um nome');
-    this.items.push(text);
-  }
+
 }

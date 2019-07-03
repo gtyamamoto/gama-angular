@@ -1,0 +1,12 @@
+
+<div class="container-fluid text-center card my-2 p-2">
+    <p>contador-botoes works!</p>
+    <p><strong>Contador: </strong> <span>{{contador}}</span></p>
+    <div class="row-fluid text-center p-2">
+        <button (click)="todoService.aumentar()" class="btn mx-2 btn-primary"> + </button>
+        <button class="btn btn-danger" (click)="todoService.diminuir()"> - </button>
+    </div>
+
+</div>
+
+
