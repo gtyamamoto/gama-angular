@@ -4,8 +4,8 @@
             <td>{{data.id}}</td>
             <td>{{data.title}}</td>
             <td>{{data.description}}</td>
-            <td>{{data.finished? 'Sim' : 'Não'}}</td>
-            <td>{{data.date}}</td>
+            <td>{{data.finished | bool}}</td>
+            <td>{{data.date | date : 'dd/MM/yyyy'}}</td>
     
             
     

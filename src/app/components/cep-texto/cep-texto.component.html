@@ -1,0 +1,15 @@
+
+
+
+<div class="container text-center p-3 m-4">
+        <div class="d-flex justify-content-center">
+                <input [(ngModel)]="cepText" class="form-control w-50" type="text" name="" id="" placeholder="DIGITE UM CEP">
+               
+                <button (click)="buscarCep()" class="btn btn-secondary">Buscar</button>
+        </div>
+
+       
+    <p><strong>Logradouro:</strong> <span>{{cep.logradouro}}</span></p>
+    <p><strong>cep:</strong> <span>{{cep.cep}}</span></p>
+    <p><strong>Bairro:</strong> <span>{{cep.bairro}}</span></p>
+</div>

@@ -1,6 +1,7 @@
 import { TodoService } from 'src/app/todo.service';
 import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/typings/Todo';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-lista-todos',
@@ -8,13 +9,13 @@ import { Todo } from 'src/typings/Todo';
   styleUrls: ['./lista-todos.component.css']
 })
 export class ListaTodosComponent implements OnInit {
-  todos : Todo[] = [];
+
+  todos$: Observable<Todo[]>;
+
   constructor(private todoService : TodoService) { }
 
   ngOnInit() {
-    this.todoService.getTodos().subscribe(value=>{
-      this.todos = value
-    })
+    this.todos$ = this.todoService.getTodos()
   }
 
 }

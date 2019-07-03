@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Todo } from 'src/typings/Todo';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,5 +23,8 @@ export class TodoService {
 
     return this.httpClient.get<Todo[]>('http://localhost:3000/todos')
 
+  }
+  sendTodo(todo : Todo){
+    return this.httpClient.post('http://localhost:3000/todos',todo) 
   }
 }
