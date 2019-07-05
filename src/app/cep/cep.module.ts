@@ -1,3 +1,4 @@
+import { AuthGuard } from './../auth/auth.guard';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { CepTextoComponent } from './cep-texto/cep-texto.component';
@@ -10,7 +11,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes : Routes = [
   {path:':numero',component:CepComponent,pathMatch:'full'},
-  {path:'',component:CepTextoComponent,pathMatch:'full'},
+  {path:'',component:CepTextoComponent,pathMatch:'full',canActivate:[AuthGuard]},
   
 ]
 @NgModule({
