@@ -19,10 +19,16 @@ export class TodoService {
     this.pContador.next(this.pContador.value+1);
   }
   // API 
-  getTodos() : Observable<Todo[]>{
+  getTodos(user_id) : Observable<Todo[]>{
+    console.log(user_id)
+    return this.httpClient.get<Todo[]>(`http://localhost:3000/users/${user_id}/todos`)
 
-    return this.httpClient.get<Todo[]>('http://localhost:3000/todos')
-
+  }
+  updateTodo(id,todo){
+    this.httpClient.put<Todo>(`http://localhost:3000/todos/${id}`,todo)
+  }
+  getTodo(id){
+    this.httpClient.get<Todo>(`http://localhost:3000/todos/${id}`)
   }
   sendTodo(todo : Todo){
     return this.httpClient.post('http://localhost:3000/todos',todo) 

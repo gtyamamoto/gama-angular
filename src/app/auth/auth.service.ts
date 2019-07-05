@@ -22,12 +22,13 @@ export class AuthService {
     return this.httpclient.post(`https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountInfo?key=${API_KEY}`,{idToken:token})
   }
   setUser(user:any){
+    console.log(user)
     this.pUser.next(user)
   }
   logout(){
     localStorage.removeItem('token')
     
-   this.pUser.next({email:''})
+   this.pUser.next(null)
    alert('usuario deslogado')
 
   }

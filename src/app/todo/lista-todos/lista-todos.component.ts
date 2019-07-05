@@ -2,6 +2,7 @@ import { TodoService } from '../todo.service';
 import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/typings/Todo';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-lista-todos',
@@ -12,10 +13,14 @@ export class ListaTodosComponent implements OnInit {
 
   todos$: Observable<Todo[]>;
 
-  constructor(private todoService : TodoService) { }
+  constructor(private todoService : TodoService,private authservice : AuthService) { }
 
   ngOnInit() {
-    this.todos$ = this.todoService.getTodos()
+    this.authservice.currentUser.subscribe(user=>{
+      if(user)
+      this.todos$ = this.todoService.getTodos(user.id)
+    })
+    
   }
 
 }

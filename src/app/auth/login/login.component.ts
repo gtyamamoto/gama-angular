@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
     email:'',
     password:''
   }
-  constructor(private authService : AuthService) { }
+  constructor(private authService : AuthService,private router:Router) { }
 
   ngOnInit() {
   }
@@ -22,9 +23,11 @@ export class LoginComponent implements OnInit {
       console.log(val)
       localStorage.setItem('token',val.idToken)
       this.authService.setUser({
-        email:val.email
+        email:val.email,
+        id:val.localId
       })
       alert('usuario logado!')
+      this.router.navigateByUrl('/todos')
     },error=>{
       console.log(error);
       switch (error.error.error.message) {

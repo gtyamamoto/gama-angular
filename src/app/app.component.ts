@@ -2,7 +2,7 @@ import { AuthService } from './auth/auth.service';
 
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from './todo/todo.service';
-import {asyncScheduler} from 'rxjs'
+import {asyncScheduler, Observable} from 'rxjs'
 import { map,throttleTime,debounceTime} from 'rxjs/operators'
 @Component({
   selector: 'app-root',
@@ -11,7 +11,8 @@ import { map,throttleTime,debounceTime} from 'rxjs/operators'
 })
 export class AppComponent implements OnInit {
   contador = 0;
-  email = '';
+  user$ : Observable<any>;
+  // email = '';
   constructor(public todoService : TodoService, private authService : AuthService){
 
   }
@@ -24,15 +25,16 @@ export class AppComponent implements OnInit {
     const token = localStorage.getItem('token')
     if(token!=``){
       this.authService.verifyToken(token).subscribe(v=>{
-        this.authService.setUser({email:v.users[0].email})
+        console.log(v)
+        this.authService.setUser({email:v.users[0].email,id:v.users[0].localId})
       },error=>{
         console.warn(error)
       })
     }
-
-    this.authService.currentUser.subscribe((user)=>{
-      if(user!==null) this.email = user.email
-    })
+    this.user$ = this.authService.currentUser;
+    // this.authService.currentUser.subscribe((user)=>{
+    //   if(user!==null) this.email = user.email
+    // })
 
     this.todoService.contador
     .pipe(

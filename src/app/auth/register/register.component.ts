@@ -22,7 +22,12 @@ export class RegisterComponent implements OnInit {
     }
       this.authService.createAccount(this.user.email,this.user.password).subscribe(value=>{
         alert('usuario criado com sucesso!')
-        console.log(value)
+        localStorage.setItem('token',value.idToken)
+      this.authService.setUser({
+        email:value.email,
+        id:value.localId
+      })
+      alert('usuario logado!')
       })
   }
 

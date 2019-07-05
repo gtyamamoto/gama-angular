@@ -4,4 +4,5 @@ export interface Todo {
     description? : string; // tipo facultativo
     finished? : boolean;
     date?: string;
+    userId:string;
 }
