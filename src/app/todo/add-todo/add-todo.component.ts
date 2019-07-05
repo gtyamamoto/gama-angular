@@ -1,4 +1,4 @@
-import { TodoService } from 'src/app/todo.service';
+import { TodoService } from 'src/app/todo/todo.service';
 import { Todo } from 'src/typings/Todo';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
