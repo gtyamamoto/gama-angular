@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -12,7 +13,7 @@ export class RegisterComponent implements OnInit {
     password:''
   }
   confirmpassword : string = ''
-  constructor(private authService:AuthService) { }
+  constructor(private authService:AuthService,private router:Router) { }
 
   ngOnInit() {
   }
@@ -27,7 +28,7 @@ export class RegisterComponent implements OnInit {
         email:value.email,
         id:value.localId
       })
-      alert('usuario logado!')
+      this.router.navigateByUrl('/todos')
       })
   }
 

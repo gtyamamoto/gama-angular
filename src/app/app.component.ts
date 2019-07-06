@@ -3,7 +3,7 @@ import { AuthService } from './auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from './todo/todo.service';
 import {asyncScheduler, Observable} from 'rxjs'
-import { map,throttleTime,debounceTime} from 'rxjs/operators'
+import { map,debounceTime} from 'rxjs/operators'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
