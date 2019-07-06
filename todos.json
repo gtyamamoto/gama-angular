@@ -62,22 +62,6 @@
       "date": "2019-07-07",
       "description": "aaaaaaaaaaaaaaaaaaaaaaaa",
       "finished": true
-    },
-    {
-      "id": 18,
-      "userId": "38fQzuJyrxderJBRhIQ5GiERpNm1",
-      "title": "john bon jovi",
-      "date": "2019-07-18",
-      "description": "bao",
-      "finished": true
-    },
-    {
-      "id": 19,
-      "userId": "38fQzuJyrxderJBRhIQ5GiERpNm1",
-      "title": "jararacaaaa",
-      "date": "2019-07-20",
-      "description": "aaaaaaaaaaaaaaaaaaaaaaaa",
-      "finished": false
     }
   ]
 }

@@ -10,8 +10,8 @@
                 </tr>
     </thead>
     <tbody>
-            <tr  *ngFor="let item of todos$ | async"   >
-                    <app-todo-item [data]="item"></app-todo-item>
+            <tr  *ngFor="let item of todos"   >
+                    <app-todo-item [data]="item" (deleteElement)="onDeleteItem($event)"></app-todo-item>
         
             </tr>
     </tbody>

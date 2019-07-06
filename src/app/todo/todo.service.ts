@@ -25,10 +25,13 @@ export class TodoService {
 
   }
   updateTodo(id,todo){
-    this.httpClient.put<Todo>(`http://localhost:3000/todos/${id}`,todo)
+   return this.httpClient.put<Todo>(`http://localhost:3000/todos/${id}`,todo)
   }
-  getTodo(id){
-    this.httpClient.get<Todo>(`http://localhost:3000/todos/${id}`)
+  getTodo(id) : Observable<any>{
+    return this.httpClient.get<Todo>(`http://localhost:3000/todos/${id}`)
+  }
+  deleteTodo(id) : Observable<any>{
+    return this.httpClient.delete<Todo>(`http://localhost:3000/todos/${id}`)
   }
   sendTodo(todo : Todo){
     return this.httpClient.post('http://localhost:3000/todos',todo) 
